@@ -3,7 +3,7 @@ django-markup-tags
 ===========
 
 Django-markup-tags provides Markdown, Textile, and ReST template tags as
-opposed to `filters <https://docs.djangoproject.com/en/dev/ref/contrib/markup/>'_.
+opposed to [filters](https://docs.djangoproject.com/en/dev/ref/contrib/markup/).
 Usage is simple, add ``'markuptags'`` to ``INSTALLED _APPS`` load it in the
 template like so::
 
