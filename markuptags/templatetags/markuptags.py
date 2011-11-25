@@ -21,7 +21,7 @@ class MarkdownNode(template.Node):
 
     def render(self, context):
         output = self.nodelist.render(context)
-        return markdown.markdown(dedent(output))
+        return markdown.markdown(dedent(output.strip()))
 
 
 @register.tag(name="textile")
@@ -37,7 +37,7 @@ class TextileNode(template.Node):
 
     def render(self, context):
         output = self.nodelist.render(context)
-        return textile.textile(dedent(output))
+        return textile.textile(dedent(output.strip()))
 
 
 @register.tag(name="restructuredtext")
@@ -54,5 +54,7 @@ class RestructuredtextNode(template.Node):
     def render(self, context):
         output = self.nodelist.render(context)
         docutils_settings = getattr(settings, "RESTRUCTUREDTEXT_FILTER_SETTINGS", {})
-        parts = publish_parts(source=smart_str(dedent(output)), writer_name="html4css1", settings_overrides=docutils_settings)
+        parts = publish_parts(source=smart_str(dedent(output.strip())),
+                              writer_name="html4css1",
+                              settings_overrides=docutils_settings)
         return parts['whole']
