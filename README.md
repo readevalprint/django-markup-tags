@@ -27,6 +27,13 @@ template like so:
              3) Third item
     {% endrestructuredtext %}
 
+INSTALLATION
+------------
+`$ pip install django-markup-tags`
+
+easy!
+
+
 TODO
 ----
 * tests
