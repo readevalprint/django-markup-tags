@@ -35,7 +35,7 @@ Install the stable version from pypi
 
 or live on the edge
 
-`sudo pip install https://github.com/readevalprint/django-markup-tags/zipball/master`
+`$ pip install https://github.com/readevalprint/django-markup-tags/zipball/master`
 
 It's that easy!
 
