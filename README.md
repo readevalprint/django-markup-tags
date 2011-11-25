@@ -1,14 +1,10 @@
-===========
 django-markup-tags
-===========
+==================
 
 Django-markup-tags provides Markdown, Textile, and ReST template tags as
 opposed to [filters](https://docs.djangoproject.com/en/dev/ref/contrib/markup/).
 Usage is simple, add ``'markuptags'`` to ``INSTALLED _APPS`` load it in the
-template like so::
-
-
-    {% load markuptags %}
+template like so:
 
     {% markdown %}
     A First Level Header
@@ -20,41 +16,35 @@ template like so::
     {% endtextile %}
 
     {% restructuredtext %}
-    * a bullet point using "*"
+    1) An enumerated list item
 
-      - a sub-list using "-"
+    2) Second item
 
-        + yet another sub-list
+       a) Sub item
 
-      - another item
+             i) Sub-sub item
+
+             3) Third item
     {% endrestructuredtext %}
 
-(Note the double-colon and 4-space indent formatting above.)
-
-Paragraphs are separated by blank lines. *Italics*, **bold**,
-and ``monospace`` look like this.
-
-
-A Section
-=========
-
-Lists look like this:
-
-* First
-
-* Second. Can be multiple lines
-  but must be indented properly.
-
-A Sub-Section
--------------
-
-Numbered lists look like you'd expect:
-
-1. hi there
-
-2. must be going
-
-Urls are http://like.this and links can be
-written `like this <http://www.example.com/foo/bar>`_.
+TODO
+----
+* tests
 
 
+LICENSE
+-------
+
+Copyright (c) 2011, Timothy Watts tim@readevalprint.com
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
