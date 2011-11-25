@@ -29,9 +29,15 @@ template like so:
 
 INSTALLATION
 ------------
+Install the stable version from pypi
+
 `$ pip install django-markup-tags`
 
-easy!
+or live on the edge
+
+`sudo pip install https://github.com/readevalprint/django-markup-tags/zipball/master`
+
+It's that easy!
 
 
 TODO
