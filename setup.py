@@ -3,7 +3,7 @@ ez_setup.use_setuptools()
 from setuptools import setup, find_packages
 setup(
     name = "django-markup-tags",
-    version = "0.1.0",
+    version = "0.1.1",
     packages = find_packages(),
     author = "Timothy Watts",
     author_email = "tim@readevalprint.com",
