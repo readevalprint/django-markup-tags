@@ -1,7 +1,5 @@
 from django import template
 from django.utils.encoding import smart_str, force_unicode
-import markdown, textile
-from docutils.core import publish_parts
 from textwrap import dedent
 from django.conf import settings
 
@@ -21,6 +19,12 @@ class MarkdownNode(template.Node):
 
     def render(self, context):
         output = self.nodelist.render(context)
+        try:
+            import markdown
+        except ImportError:
+            if settings.DEBUG:
+                raise template.TemplateSyntaxError("Error in {% markdown %} filter: The Python markdown library isn't installed.")
+            return force_unicode(value)
         return markdown.markdown(dedent(output.strip()))
 
 
@@ -37,6 +41,12 @@ class TextileNode(template.Node):
 
     def render(self, context):
         output = self.nodelist.render(context)
+        try:
+            import textile
+        except ImportError:
+            if settings.DEBUG:
+                raise template.TemplateSyntaxError("Error in {% textile %} filter: The Python textile library isn't installed.")
+        return force_unicode(value)
         return textile.textile(dedent(output.strip()))
 
 
@@ -54,6 +64,12 @@ class RestructuredtextNode(template.Node):
     def render(self, context):
         output = self.nodelist.render(context)
         docutils_settings = getattr(settings, "RESTRUCTUREDTEXT_FILTER_SETTINGS", {})
+        try:
+            from docutils.core import publish_parts
+        except ImportError:
+            if settings.DEBUG:
+                raise template.TemplateSyntaxError("Error in {% restructuredtext %} filter: The Python docutils library isn't installed.")
+            return force_unicode(value)
         parts = publish_parts(source=smart_str(dedent(output.strip())),
                               writer_name="html4css1",
                               settings_overrides=docutils_settings)
