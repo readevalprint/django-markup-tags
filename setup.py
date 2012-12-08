@@ -1,9 +1,17 @@
-import ez_setup
-ez_setup.use_setuptools()
-from setuptools import setup, find_packages
+try:
+    from ez_setup import use_setuptools
+    use_setuptools()
+except ImportError:
+    pass
+
+try:
+    from setuptools import setup, find_packages
+except ImportError:
+    from distutils.core import setup, find_packages
+
 setup(
     name = "django-markup-tags",
-    version = "0.1.1",
+    version = "0.1.2",
     packages = find_packages(),
     author = "Timothy Watts",
     author_email = "tim@readevalprint.com",
